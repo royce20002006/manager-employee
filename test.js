@@ -1,0 +1,14 @@
+const Manager = require('./manager')
+const Employee = require('./employee')
+
+const Hobbes = new Manager('Hobbes', 1000000, 'Founder')
+const Calvin = new Manager('Calvin', 130000, 'Director', Hobbes);
+const Susie = new Manager('Susie', 100000, 'TA Manager', Calvin);
+const Lilly = new Employee('Lilly', 90000, 'TA', Susie);
+const Clifford = new Employee('Clifford', 90000, 'TA', Susie);
+
+console.log(Hobbes.calculateBonus(0.05)); // => 70,500
+console.log(Calvin.calculateBonus(0.05)); // => 20,500
+console.log(Susie.calculateBonus(0.05)); // => 14,000
+console.log(Lilly.calculateBonus(0.05)); // => 4,500
+console.log(Clifford.calculateBonus(0.05)); // => 4,500
